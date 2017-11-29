@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FireBase</string>
+    <string name="register">تسجيل</string>
+    <string name="login">دخول</string>
+</resources>
