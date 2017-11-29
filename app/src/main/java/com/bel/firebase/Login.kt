@@ -35,11 +35,15 @@ class Login : AppCompatActivity() {
             Toast.makeText(this,"Please Enter Your Password", Toast.LENGTH_LONG).show()
             return
         }
+        //==== loading
+        Toast.makeText(this,"Loading...",Toast.LENGTH_LONG).show()
+
 
         mAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if(task.isSuccessful){
-                        Toast.makeText(this,"Done Successfully !!",Toast.LENGTH_LONG).show()
+                        val intent=Intent(this,Home::class.java)
+                        startActivity(intent)
 
                     }else{
                         Toast.makeText(this," Failled !!"+task.exception?.message, Toast.LENGTH_LONG).show()

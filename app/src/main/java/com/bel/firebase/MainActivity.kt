@@ -1,5 +1,6 @@
 package com.bel.firebase
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -46,11 +47,17 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        //==== loading
+        Toast.makeText(this,"Loading...",Toast.LENGTH_LONG).show()
 
         mAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(this, OnCompleteListener { task ->
+
+                        Toast.makeText(this,"Loading...",Toast.LENGTH_LONG).show()
+
                         if(task.isSuccessful){
-                            Toast.makeText(this,"Done Successfully !!",Toast.LENGTH_LONG).show()
+                            val intent= Intent(this,Home::class.java)
+                            startActivity(intent)
                         }else{
                             Toast.makeText(this," Failled !!"+task.exception?.message,Toast.LENGTH_LONG).show()
 
